@@ -16,6 +16,8 @@ public class Order {
 
     if(drink.getStock() < orderCnt){
       order.status = OrderStatus.FAIL_SOLDOUT;
+    } else {
+      order.status = OrderStatus.OK;
     }
 
     return order;

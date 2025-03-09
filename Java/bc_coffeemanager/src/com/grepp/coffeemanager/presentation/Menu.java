@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class Menu {
 
-  public Sale sale;
-  public Coffee[] drinks;
-  public Account account;
+  private Sale sale;
+  private Account account;
+  private Coffee[] drinks;
 
   Scanner sc = new Scanner(System.in);
 
@@ -22,7 +22,6 @@ public class Menu {
   }
 
   public void menu() {
-
     while (true) {
       System.out.println("\n=========Menu=========");
       System.out.println("판매등록(1)");
@@ -57,19 +56,19 @@ public class Menu {
 
     System.out.print("\n * 판매한 커피코드 : ");
     int inputCode = sc.nextInt();
-
-    System.out.print(" * 판매량 : ");
-    int orderCnt = sc.nextInt();
-
     if (inputCode < 0 || inputCode >= drinks.length) {
       System.out.println("정확한 상품번호를 선택해 주세요.");
       return;
     }
 
+
+    System.out.print(" * 판매량 : ");
+    int orderCnt = sc.nextInt();
     if(orderCnt < 1){
       System.out.println("1개 이상으로 입력해주세요.");
       return;
     }
+
 
     registOrder(inputCode, orderCnt);
   }
@@ -80,10 +79,9 @@ public class Menu {
 
     if(!order.getStatus().isOK()){
       System.out.println(order.getStatus().getMessage());
-      return;
+    } else {
+      sale.takeOrder(order);
     }
-
-    sale.takeOrder(order);
   }
 
   private void statistics() {
@@ -93,8 +91,8 @@ public class Menu {
       System.out.printf("%-10s 재고(%3d) 판매량(%3d) \n", drink.getName(), drink.getStock(), drink.getSalesCnt());
     }
 
-    System.out.println("\n잔고(" + account.getBalance()
-        + ") 매출(" + account.getSales()
-        + ") 지출(" + account.getExpenses() + ")");
+    System.out.println("\n잔고(" + account.getBalance() +
+        ") 매출(" + account.getSales() +
+        ") 지출(" + account.getExpenses() + ")");
   }
 }
