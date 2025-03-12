@@ -1,6 +1,6 @@
-package com.grepp.library.c_collection;
+package com.grepp.library.c_collection.a_generic;
 
-import com.grepp.library.c_collection.domain.Device;
+import com.grepp.library.c_collection.a_generic.domain.Device;
 
 // NOTE A01: Generic
 // 클래스 외부에서 클래스 내부에서 사용할 타입을 결정하는 것
@@ -14,6 +14,23 @@ public class GenericArray<E> {
   public GenericArray(int size) {
     this.size = size;
     elements = new Object[size];
+  }
+
+  // NOTE 02 제네릭 메소드
+  public static <T> GenericArray<T> practiceGeneric(T a){
+    GenericArray<T> instance = new GenericArray<>(10);
+    instance.add(a);
+
+    return instance;
+  }
+
+  // NOTE 03 타입 한정 키워드
+  // T extend Device: Device 타입을 포함한 후손 타입
+  public static <T extends Device> GenericArray<T> practiceExtends(T e){
+    GenericArray<T> instance = new GenericArray<>(10);
+    instance.add(e);
+
+    return instance;
   }
 
   public int getSize(){
