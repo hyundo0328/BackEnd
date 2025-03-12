@@ -3,10 +3,11 @@ package com.grepp.library.c_collection.b_list.grepp;
 import com.grepp.library.c_collection.z_domain.Node;
 import java.util.NoSuchElementException;
 
-public class _LinkedList<E> implements _List<E>{
+public class _LinkedList<E> implements _List<E>, _Iterable<E> {
   private Node<E> head;
   private int pointer;
 
+  @Override
   public int size(){
     return pointer;
   }
@@ -83,7 +84,7 @@ public class _LinkedList<E> implements _List<E>{
     Node<E> link = head;
 
     for(int i=0; i<index; i++){
-      link = link.next();
+       link = link.next();
     }
 
     E modified = link.data();
@@ -115,5 +116,27 @@ public class _LinkedList<E> implements _List<E>{
     pointer--;
 
     return link.data();
+  }
+
+  @Override
+  public _Iterator<E> iterator() {
+    return new _Iterator<E>() {
+      private Node<E> current = head;
+
+      @Override
+      public boolean hasNext() {
+        return current != null;
+      }
+
+      @Override
+      public E next() {
+        if(pointer >= size()) throw new NoSuchElementException("Element");
+
+        E e = get(pointer);
+        pointer++;
+
+        return e;
+      }
+    };
   }
 }
