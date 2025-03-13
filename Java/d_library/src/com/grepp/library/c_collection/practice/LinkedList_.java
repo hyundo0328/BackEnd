@@ -114,6 +114,19 @@ public class LinkedList_<E> implements List_<E> {
     return removeNode;
   }
 
+  // contains 메소드 구현
+  public boolean contains(E e){
+    Node_<E> link = head;
+
+    while(link != null){
+      if(link.data().equals(e)) return true;
+
+      link = link.next();
+    }
+
+    return false;
+  }
+
   @Override
   public int size() {
     return pointer;
