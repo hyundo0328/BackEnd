@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 @SuppressWarnings("unchecked")
-public class _ArrayList<E> implements Iterable<E>, _List<E>{
+public class _ArrayList<E> implements _List<E>{
   // List 패키지와 유사하게 작성
 
   private Object[] elementData;
@@ -16,6 +16,11 @@ public class _ArrayList<E> implements Iterable<E>, _List<E>{
   public _ArrayList(){
     elementData = new Object[DEFAULT_CAPACITY];
     arraySize = DEFAULT_CAPACITY;
+  }
+
+  @Override
+  public int size(){
+    return pointer;
   }
 
   @Override
@@ -88,55 +93,34 @@ public class _ArrayList<E> implements Iterable<E>, _List<E>{
     return removeE;
   }
 
+  @Override
   public E get(int index){
     if(index < 0 || index >= pointer) throw new IndexOutOfBoundsException("벗어난 범위 인덱스");
 
     return (E) elementData[index];
   }
 
-  public int size(){
-    return pointer;
-  }
-
   @Override
-  public Iterator<E> iterator() {
-    // return new GreppIterator();
-    return new Iterator<E>(){
+  public Iterator<E> iterator(){
+    return new Iterator<E>() {
+
       private int pointer;
 
       @Override
       public boolean hasNext() {
+        System.out.println("hasNext 실행");
         return pointer < size();
       }
 
       @Override
       public E next() {
+        System.out.println("next 실행");
         if(pointer >= size()) throw new NoSuchElementException();
 
-        E e = get(pointer);
-        pointer++;
+        E e = get(pointer++);
 
         return e;
       }
     };
-  }
-
-  public class GreppIterator implements Iterator<E> {
-    private int pointer;
-
-    @Override
-    public boolean hasNext() {
-      return pointer < size();
-    }
-
-    @Override
-    public E next() {
-      if(pointer >= size()) throw new NoSuchElementException();
-
-      E e = get(pointer);
-      pointer++;
-
-      return null;
-    }
   }
 }
