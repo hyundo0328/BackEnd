@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .container{
+      background-color: lightyellow;
+      display: grid;
+      /*
+        fr : 그리드 컨테이너에 남아있는 공간의 일정 비율
+        repeat(3, 1fr)
+        3 : 반복 횟수
+      */
+      grid-template-columns: 150px repeat(3, 1fr);
+      row-gap: 20px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .item{
+      width: 100px;
+      height: 50px;
+      grid-column: 4/4;
+    }
+
+    .item-odd{
+      width: 100px;
+      height: 50px;
+      grid-column: 1/2;
+    }
+
+    .divider{
+      grid-column: 1/-1;
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="item divider" style="background-color: lightcoral"></div>
+  <div class="item item-odd" style="background-color: red; "></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item item-odd" style="background-color: yellow;"></div>
+  <div class="item" style="background-color: red; "></div>
+  <div class="item item-odd" style="background-color: orange;"></div>
+
+  <div class="item divider" style="background-color: lightcoral"></div>
+  <div class="item" style="background-color: red; "></div>
+  <div class="item item-odd" style="background-color: orange;"></div>
+  <div class="item" style="background-color: yellow;"></div>
+  <div class="item item-odd" style="background-color: red; "></div>
+  <div class="item" style="background-color: orange;"></div>
+</div>
+
+
+</body>
+</html>
+    
+    
+    

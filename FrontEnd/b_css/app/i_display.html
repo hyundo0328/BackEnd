@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .parent{
+      background-color: lightyellow;
+      width: 50vw;
+      height: 10vw;
+    }
+
+    .child{
+      background-color: lightblue;
+    }
+
+    div{
+      margin: 30px 10px 30px 10px;
+    }
+
+     span{
+       margin: 30px 10px 30px 10px;
+     }
+  </style>
+</head>
+<body>
+<!--
+  HTML 태그 화면상의 분류
+  1. 화면에 표시되지 않는 tag (html, head, meta...)
+     display : none
+  2. 화면에 표시되는 tag
+      block :  display: block
+        부모요소의 width 를 영역으로 가진다.
+        모든 방향에 margin 을 적용할 수 있다.
+        width, height 속성을 사용할 수 있다.
+      inline : display: inline
+        컨텐츠 크기만큼 영역을 가진다.
+        좌우 방향에 대해서만 margin 을 지정할 수 있다.
+        width, height 속성을 사용할 수 없다.
+-->
+<h1>block/inline 요소</h1>
+<div class="parent" >
+  Block level Element
+  <div class="child">
+    Block level Element
+  </div>
+</div>
+
+<hr>
+
+<span class="parent" style="height: 100000000px">
+  inline level Element
+  <span class="child">
+    inline level Element
+  </span>
+</span>
+
+<h2>margin 상쇄</h2>
+<pre>
+  두 요소의 margin-top 과 margin-bottom 영역이 겹칠 때
+  큰 margin 만 적용 되는 것
+</pre>
+<div class="parent" >
+  Block level Element
+  <div class="child">
+    Block level Element
+  </div>
+</div>
+
+<div class="parent" style="margin-top: 50px">
+  Block level Element
+  <div class="child">
+    Block level Element
+  </div>
+</div>
+
+
+</body>
+</html>

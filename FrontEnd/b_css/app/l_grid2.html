@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .container{
+      background-color: lightyellow;
+      display: grid;
+      /*
+        fr : 그리드 컨테이너에 남아있는 공간의 일정 비율
+        repeat(3, 1fr)
+        3 : 반복 횟수
+      */
+      grid-template-columns: 150px repeat(3, 1fr);
+      grid-template-rows: 100px  100px  100px  100px;
+      /* justify-itmes: start | center | end */
+      justify-items: center;
+      align-items: center;
+    }
+
+    .item{
+      width: 100px;
+      height: 50px;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="item" style="background-color: red; "></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item" style="background-color: yellow;"></div>
+  <div class="item" style="background-color: red; "></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item" style="background-color: red; "></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item" style="background-color: yellow;"></div>
+  <div class="item" style="background-color: red; "></div>
+  <div class="item" style="background-color: orange;"></div>
+</div>
+
+
+</body>
+</html>
+    
+    
+    

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .row{
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .inline{
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    .item{
+      width: 100px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>flex container</h1>
+  <pre>
+    container : 정렬할 요소들을 감싸는 부모요소
+      display: flex|inline-flex 지정을 통해 container 로 만들 수 있다.
+        display: flex         container 가 block 요소
+        display: inline-flex  container 가 inline 요소
+
+      flex-direction : item 이 정렬되는 방향
+        row (왼오), row-reverse(오왼), column(위아래), column-reverse(아래위)
+
+    item : container 의 자식요소
+  </pre>
+  <div class="row">
+    <div class="item" style="background-color: red;"></div>
+    <div class="item" style="background-color: orange;"></div>
+    <div class="item" style="background-color: yellow;"></div>
+    <div class="item" style="background-color: green;"></div>
+    <div class="item" style="background-color: blue;"></div>
+  </div>
+
+  <hr>
+
+  <div class="inline">
+    <div class="item" style="background-color: red;"></div>
+    <div class="item" style="background-color: orange;"></div>
+    <div class="item" style="background-color: yellow;"></div>
+    <div class="item" style="background-color: green;"></div>
+    <div class="item" style="background-color: blue;"></div>
+  </div>
+
+  <div class="inline">
+    <div class="item" style="background-color: red;"></div>
+    <div class="item" style="background-color: orange;"></div>
+    <div class="item" style="background-color: yellow;"></div>
+    <div class="item" style="background-color: green;"></div>
+    <div class="item" style="background-color: blue;"></div>
+  </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .wrap {
+      width: 60vw;
+      height: 950px;
+      background-color: lightyellow;
+      position: relative;
+      left: 20vw;
+    }
+
+    .position{
+      width: 20vw;
+      height: 110px;
+      background-color: lightblue;
+      margin: 10px 0;
+    }
+
+    .rel{
+      position: relative;
+    }
+
+    .abs{
+      position: absolute;
+    }
+
+    .fixed{
+      position: fixed;
+      background-color: lightcoral;
+      z-index: 999;
+    }
+
+    .fixed-top{
+      width: 100vw;
+      height: 5vh;
+    }
+
+    .fixed-left{
+      width: 10vw;
+      height: 25vh;
+      top: 50vh;
+      transform: translateY(-50%);
+    }
+
+  </style>
+
+
+</head>
+<body>
+
+<div class="fixed fixed-top">
+  fixed : top
+</div>
+<div class="fixed fixed-left">
+  fixed : left
+</div>
+
+<h3>position : element 가 배치되는 위치를 지정하는 속성</h3>
+<pre>
+  static : 기본값
+    부모 요소의 좌측 상단 부터 순차적으로 배치
+    top, left, right, bottom, z-index 속성 사용 불가
+
+  relative
+    부모 요소의 좌측 상단 부터 순차적으로 배치
+    top, left, right, bottom, z-index 속성 사용 가능
+    요소가 배치된 위치를 기준으로 위치를 지정
+
+  absolute
+    부모요소를 기준으로 위치를 지정
+
+  fixed
+    화면을 기준으로 위치를 지정
+</pre>
+
+<div class="wrap">
+  <div class="position rel rel-left" style="left: 10%">
+    position: relative;
+    left:10vw;
+  </div>
+  <div class="position rel rel-right" style="right: 10vw">
+    position: relative;
+    right:10vw;
+  </div>
+  <div class="position rel rel-top" style="top:5vw">
+    position: relative;
+    top:5vw;
+  </div>
+  <div class="position rel rel-bottom" style="bottom:5vw">
+    position: relative;
+    bottom:5vw;
+  </div>
+
+  <div class="position abs abs-left" style="left: 10vw">
+    position: absolute;
+    left:10vw;
+  </div>
+  <div class="position abs abs-right" style="right: 10vw">
+    position: absolute;
+    right:10vw;
+  </div>
+  <div class="position abs abs-top" style="top:10vw">
+    position: absolute;
+    top:10vw;
+  </div>
+  <div class="position abs abs-bottom" style="bottom:10vw">
+    position: absolute;
+    bottom:10vw;
+  </div>
+
+
+
+
+</div>
+
+
+</body>
+</html>

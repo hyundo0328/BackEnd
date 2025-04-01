@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .row{
+      background-color: lightyellow;
+      display: flex;
+      height: 300px;
+    }
+
+    .item{
+      width: 100px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+<h2>container : align-items</h2>
+<pre>
+    align-items : 교차축에 대한 정렬방식을 지정
+    flex-start : default, 시작점부터 정렬
+    flex-end : 끝점 부터 정렬
+    center : 가운데 정렬
+</pre>
+
+<div class="row"
+     style="align-items: flex-start">
+  <div class="item" style="background-color: red;"></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item" style="background-color: yellow;"></div>
+  <div class="item" style="background-color: green;"></div>
+  <div class="item" style="background-color: blue;"></div>
+</div>
+
+<hr>
+
+<div class="row" style="align-items: flex-end">
+  <div class="item" style="background-color: red;"></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item" style="background-color: yellow;"></div>
+  <div class="item" style="background-color: green;"></div>
+  <div class="item" style="background-color: blue;"></div>
+</div>
+
+<hr>
+
+<div class="row"
+     style="align-items: center; justify-content: space-around">
+  <div class="item" style="background-color: red;"></div>
+  <div class="item" style="background-color: orange;"></div>
+  <div class="item" style="background-color: yellow;"></div>
+  <div class="item" style="background-color: green;"></div>
+  <div class="item" style="background-color: blue;"></div>
+</div>
+
+
+</body>
+</html>
