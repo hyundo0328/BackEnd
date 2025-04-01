@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    button{
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    aside{
+      position: fixed;
+      width: 10vw;
+      justify-content: space-around;
+      height: 100vw;
+    }
+    footer{
+      background-color: lightskyblue;
+      width: 100vw;
+      height: 15vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2vw;
+    }
+    button:hover{
+      background-color: lightgrey;
+    }
+    .head{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 10vw;
+      padding-inline: 40px;
+    }
+    .l_banner {
+      width: 100vw;
+      height: 50vw;
+      background-image: url("app/assets/img/book/banner_web.jpg");
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 3vw;
+      padding-bottom: 3vw;
+    }
+    .title{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgba(256,256,256,0.7);
+      width: 60vw;
+      padding: 5vw;
+    }
+    .search{
+      display: flex;
+      flex-direction: row;
+      width: 60vw;
+    }
+    .searchTitle{
+      background-color: #ff253a;
+      width: 15vw;
+      height: 5vw;
+      color: white;
+      display: grid;
+      place-items: center;
+    }
+    .searchButton{
+      background-color: white;
+      display: flex;
+      align-items: center;
+    }
+    .category{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 98vw;
+    }
+    .categoryButton{
+      font-size: 2vw;
+      font-weight: bold;
+      width: 10vw;
+      height: 8vw;
+    }
+    .bookDiv{
+      padding-top: 3vw;
+    }
+    .books{
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      gap: 20px;
+      overflow: auto;
+      justify-content: center;
+    }
+    .bookTitle{
+      font-size: 1.5vw;
+      font-weight: bold;
+      text-align: center;
+    }
+    .book{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body class="total">
+<aside>
+  <button class="categoryButton">도서검색</button>
+  <button class="categoryButton">장바구니</button>
+  <button class="categoryButton">공지사항</button>
+  <button class="categoryButton">about me</button>
+</aside>
+<header>
+  <div class="head">
+    <div style="font-size: 2.0vw; font-weight: bold;">Grepp</div>
+    <div>
+      <button>sign in</button> /
+      <button>sign up</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="l_banner">
+    <div class="title">
+      <p style="font-size: 6vw; font-weight: bold">Grepp library</p>
+      <div class="search">
+        <span class="searchTitle">검색</span>
+        <input
+            type="text"
+            placeholder="검색어를 입력하세요"
+            style="border: none; flex-grow: 1; font-size: 16px; padding-left: 12px">
+        <button class="searchButton">
+          <img src="app/assets/img/search.png"
+               style="width: 2.5vw; height: 2.5vw;">
+        </button>
+      </div>
+    </div>
+
+    <div class="category">
+      <button class="categoryButton">도서검색</button>
+      <button class="categoryButton">장바구니</button>
+      <button class="categoryButton">공지사항</button>
+      <button class="categoryButton">about me</button>
+    </div>
+  </div>
+
+  <div class="bookDiv">
+    <p class="bookTitle">최근 인기 도서</p>
+    <div class="books">
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="bookDiv">
+    <p class="bookTitle">스테디셀러</p>
+    <div class="books">
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="bookDiv">
+    <p class="bookTitle">새로 들어온 책</p>
+    <div class="books">
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="bookDiv">
+    <p class="bookTitle">최근 대출 도서</p>
+    <div class="books">
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+      <div class="book">
+        <img class="activator" src="app/assets/img/book/Nudge.jpg">
+        <span>Nudge</span>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer>
+  copyright 2025. phd All rights reserved
+</footer>
+</body>
+</html>
