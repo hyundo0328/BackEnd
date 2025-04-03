@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Module</h1>
+<script type ="module">
+  // import 이름 from 모듈
+  import c from './assets/js/module/ecma.js';
+  c();
+
+  import {odd as o, even as e, phd as p, counter} from './assets/js/module/ecma.js';
+  console.log(o);
+  console.log(e);
+  console.log(p);
+  console.log(counter);
+
+  counter();
+  counter();
+  counter();
+  counter();
+  counter();
+
+  import * as ecma from './assets/js/module/ecma.js';
+  console.dir(ecma);
+
+</script>
+</body>
+</html>

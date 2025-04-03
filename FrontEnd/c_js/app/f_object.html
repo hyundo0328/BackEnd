@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Object</h1>
+<script>
+  let top1 = {
+    title : '소년이 온다',
+    awards : ['노벨문학상', '이상문학상'],
+    category : {depth1: '문학', depth2: '소설'},
+    'categoryCode':12,
+    info: function(){
+      console.log(this.title);
+    }
+  }
+
+  let top2 = {
+    title : '당신의 이름을 지어다가 며칠은 먹었다',
+    awards : ['젊은 예술가상'],
+    category : {depth1: '문학', depth2: '시'},
+    'categoryCode':12,
+    info: function(){
+      console.log(this.title);
+    }
+  }
+
+  let top3 = {
+    title : 'Object',
+    awards : [],
+    category : {depth1: '기술', depth2: 'IT'},
+    'category-code':15,
+    info: function(){
+      console.log(this.title);
+    }
+  }
+
+  console.dir(top1);
+  console.dir(top1.title);
+  console.dir(top3['category-code']);
+
+  // Object.keys() , Object.values()
+  console.dir(Object.keys(top1));
+  console.dir(Object.values(top1));
+
+  for(const key in top2){
+    console.log('key', key);
+    console.log('value', top2[key]);
+  }
+
+  // 객체에 속성과 메서드를 동적으로 추가
+  top3.add = function(a, b){
+    return  a + b;
+  }
+
+  console.log(top3.add(100, 200))
+  top3['multiply'] = function(a, b){
+    return a * b;
+  }
+
+  console.log(top3.multiply(100, 100));
+
+
+</script>
+</body>
+</html>
+
+

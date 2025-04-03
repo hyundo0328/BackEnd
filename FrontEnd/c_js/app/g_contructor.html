@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h1>Constructor</h1>
+
+<h2>prototype 객체</h2>
+<pre>
+  함수객체는 프로토타입 객체를 prototype 속성으로 가지고 있다.
+  함수를 생성자 함수로 사용할 경우, 생성자함수에 의해 만들어진 객체는
+  __proto__  속성으로 prototype 객체를 가지게 된다.
+  객체는 프로토타입 객체가 가지고 있는 속성에 접근할 수 있다.
+  prototype 속성의 연쇄를 proto chain 이라 한다.
+</pre>
+
+<script>
+
+  function Exam(academy, username, kor, eng, math){
+    this.academy = academy;
+    this.username = username;
+    this.kor = kor;
+    this.eng = eng;
+    this.math = math;
+    this.total = function(){
+      return this.kor + this.eng + this.math;
+    }
+
+    console.log('Exam 함수 호출');
+  }
+
+  const hmd = new Exam('grepp', 'hmd', 100, 90, 70);
+  const ysk = new Exam('grepp', 'ysk', 100, 100, 100);
+  console.dir(Exam);
+  console.log(hmd);
+  console.log(ysk);
+
+  hmd.dev = 100;
+  hmd.job = 'lecture';
+  hmd.fnc = () => {
+
+  }
+  Exam.prototype.toString = function(){
+    let arr = [];
+    for(const key in this){
+      arr.push(`${key}: ${this[key]}`);
+    }
+
+    arr.sort();
+    return arr.join(' ,\n ');
+  }
+  console.dir(hmd.toString());
+  console.dir(ysk.toString());
+
+  console.log('==================================')
+  hmd.__proto__.nation = 'kor';
+
+  console.log(hmd);
+  console.log(ysk);
+  console.log('hmd', hmd.nation);
+  console.log('ysk', ysk.nation);
+
+  ysk.__proto__.nation = 'zzzzzzz';
+  console.log('hmd', hmd.nation);
+  console.log('ysk', ysk.nation);
+
+  const university = {
+    university : '한국대학교'
+  }
+
+  console.log('==============================');
+
+  hmd.__proto__ = university;
+  console.log(hmd);
+  console.log('hmd', hmd.university);
+  console.log('ysk', ysk.nation);
+
+  const similarArray = {
+    0: 'hi',
+    1: 'hello',
+    2: 'bye',
+    length: 3
+  }
+
+  // similarArray.__proto__ = []
+  // [].__proto__ = Array.prototype
+  // Array.prototype.__proto__ = object
+
+  // similarArray 의 proto chain : [], Array.prototype, object
+  similarArray.__proto__ = [];
+  console.log(similarArray);
+  similarArray.forEach(e => console.log(e));
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>class</h1>
+
+<script>
+  class Person{
+    // public field
+    name;
+
+    // private field
+    #gender;
+
+    // static
+    static species = 'mammalian';
+
+    // 상수
+    #HABIT = 'earth';
+
+    constructor(name, gender) {
+      this.name = name;
+      this.#gender = gender;
+    }
+
+    get gender(){
+      return this.#gender;
+    }
+
+    set gender(gender){
+      this.#gender = gender;
+    }
+
+    get HABIT(){
+      return this.#HABIT;
+    }
+
+    //   Person 인스턴스의 모든 속성을 출력할 수 있도록 toString 을 오버라이드 하시오.
+    //   Person 의 자식객체의 속성도 출력되어야 합니다.
+    toString(){
+      return `${this.name}, ${this.#gender}`;
+    }
+  }
+
+  const hmd = new Person('하명도', '남');
+  const shy = new Person('손혜은', '여');
+  console.dir(hmd);
+  console.dir(shy);
+  console.dir(hmd.name);
+  console.dir(hmd.gender);
+  console.dir(Person.species);
+  console.dir(hmd.HABIT);
+
+  class Employee extends Person{
+    #company;
+
+    constructor(name, gender, company) {
+      super(name, gender);
+      this.#company = company;
+    }
+
+    get company() {
+      return this.#company;
+    }
+
+    toString(){
+      return `${this.name}, ${super.gender}, ${this.#company}`;
+    }
+  }
+
+  const hgd  = new Employee('홍길동', '여', 'grepp');
+  hgd.school("충암");
+  console.dir(hgd);
+  console.dir(hgd.company);
+  console.dir(hgd.toString());
+</script>
+</body>
+</html>

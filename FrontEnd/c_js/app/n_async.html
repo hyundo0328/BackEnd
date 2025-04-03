@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Async</h1>
+<script>
+  // 자바스크립트: Single Thread 언어
+  // 비동기: asynchronous (a + syn + chronous)
+  // a(없다, 반대) syn(맞추다) chronous(시간)
+
+  // 비동기로 실행되는 함수가 끝나는 시점과, 다음 로직이 시작되는 시점을 맞추지 않음
+  // 여러 개의 비동기 작업 중 작업순서를 맞춰야하는 경우, callback 함수 안에서 다음 수행해야할 비동기작업을 시작
+  // callback hell 이슈가 발생(가독성 낮고, 문제 많이 발생)
+  const callbackHell = () => {
+    setTimeout(() => {
+      console.log("1초");
+      setTimeout(()=>{
+        console.log("2초");
+        setTimeout(()=>{
+          console.log("3초");
+          setTimeout(()=>{
+            console.log("4초");
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+
+    console.dir("끝!");
+  }
+  // callbackHell();
+
+  // Promise
+  // 상태
+  // pending: 작업이 진행중
+  // fulfilled: 작업이 성공적으로 끝남
+  // rejected: 작업이 실패로 끝남
+
+  // 후속 처리 메소드
+  // then: Promise fulfilled 상태일 때 호출
+  // catch: Promise rejected 상태일 때 호출
+  // finally: 반드시 실행
+
+  // const counter = new Promise((resolve, reject) => {
+  //   setTimeout(()=>{
+  //     console.log("1초");
+  //     resolve("성공");
+  //   }, 10000);
+  // });
+  const counter = (name, count) => {
+    return new Promise((resolve, reject) => {
+      if(count < 0){
+        reject("카운트는 음수일 수 없습니다.");
+        // reject(new Error("카운트는 음수일 수 없습니다."));
+        return;
+      }
+      setTimeout(()=>{
+        console.log(name, count);
+        resolve(++count);
+      }, 1000);
+    });
+  };
+
+  // console.log(counter);
+  // const test = counter.then((value) =>{
+  //   console.log(value);
+  //   console.log(counter);
+  //   return 1000;
+  // }).then((value)=>{console.dir(value)});
+
+  // const test = counter('phd', 2)
+  // .then(value => {
+  //   console.log("1: ",value);
+  //   counter('phd', value);
+  // })
+  // .then(value => {
+  //   console.log("2: ",value);
+  //   counter('phd', value);
+  // })
+  // .catch(error => console.error(error))
+  // .finally(() => console.log("finally"));
+  // console.log(test);
+
+  const studyPromise = () => {
+    return counter("phd", 1)
+      .then(count => counter('phd', count))
+      .then(count => counter('phd', count))
+      .catch(err => console.error(err))
+      .finally(() => console.log("study Promise finally"));
+  }
+
+  // async / await
+  // async 함수: 함수 앞에 async 키워드 추가 (return → Promise)
+  // await: async 함수 안에서 사용 가능한 키워드, 비동기 코드를 동기적으로 다룰 수 있음 (return값 Promise 반환)
+  const asyncCount = async (count) => {
+    try{
+      for(let i=0;i<count;i++){
+        await counter('박현도',i+1);
+      }
+    } catch (err){
+      console.error(err);
+    } finally {
+      console.log("asyncCount finally");
+    }
+  }
+  // console.log(asyncCount());
+
+  // PromiseAll / PromiseAllSettled
+  const promiseAll = async () => {
+    // await studyPromise();
+    // await asyncCount(5);
+
+    // 다음 로직이 studyPromise, asyncCount의 결과에 의존하는 로직
+    const results = await Promise.allSettled([studyPromise(), asyncCount(5)])
+      .then(result => console.log("result: ", result));
+    console.log(results);
+    console.log("다음 로직을 수행해볼까?");
+
+  }
+  promiseAll();
+</script>
+</body>
+</html>

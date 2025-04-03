@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>this</h1>
+<script>
+  // 전역에서 this: 전역객체(Window, Global)
+  console.log(this);
+
+  // 함수 안에서 this: 전역객체
+  function a() {
+    console.log('function this', this);
+  }
+
+  // 메소드 this
+  const aClass = {
+    who: 'aClass',
+    info: function(){
+      console.log(this);
+    }
+  }
+  aClass.info();
+
+  // 생성자 함수 this: 함수
+  function Info(){
+    this.kor = 100;
+    this.math = 95;
+    console.log(this);
+    // return this;가 생략되어 있는 것
+  }
+  console.log(new Info());
+
+  // 화살표 함수 this
+  const arrThis = {
+    age: 15,
+    title: 'hello',
+    test: function(){
+      console.dir(this);
+
+      // const inner = function(){
+      //   console.log(this);
+      //   console.log(`${this.age}, ${this.title}`);
+      // }
+
+      const inner = () => {
+        console.log(this);
+        console.log(`${this.age}, ${this.title}`);
+      }
+      inner();
+    }
+  }
+  arrThis.test();
+
+  // 명시적 this 바인딩
+  const changeWho = function(who){
+    console.log(this);
+  }
+  console.dir(changeWho);
+  changeWho('ssid');
+  changeWho.apply(aClass,['ssid']);
+</script>
+</body>
+</html>
