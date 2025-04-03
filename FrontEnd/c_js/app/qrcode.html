@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="assets/css/reset.css" rel="stylesheet">
+  <link href="assets/css/qrcode.css" rel="stylesheet">
+  <link href="assets/css/grid.css" rel="stylesheet">
+  <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/brands.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/solid.css" rel="stylesheet" />
+
+  <script defer type="module" src="./assets/js/qrcode.js"></script>
+  <!--
+   미디어쿼리 : viewport 또는 단말기의 종류에 따라 다른 스타일을 적용
+   @media [not|only] [매체유형 and] 표현식 {}
+
+   미디어쿼리 속성 : width, height, aspect-ratio (화면비율)
+                  device-width, device-height, device-aspect-ration
+   표현식 : 속성 비교연산자 크기
+            ex) width > 600px
+  -->
+</head>
+<body>
+<div class="header con-between">
+  <div class="weather" id="weather"></div>
+  <div class="logo"><i class="fa-solid fa-qrcode"></i></div>
+</div>
+<div class="section con">
+  <div class="content  con-around">
+    <div class="banner con-around">
+      <div class="welcomeText">
+        Welcome 2025
+      </div>
+      <div class="clock">
+        11 : 11 : 11
+      </div>
+    </div>
+    <form class="qrcode con"
+          action="http://localhost:8989/qrcode/download">
+      <input type="hidden" name="name" value="qrcode.png">
+      <input type="text" class="qrcode_inp" placeholder="Write QR" name="content">
+    </form>
+  </div>
+</div>
+<div class="footer con-start">
+  <div class="copyright" id="locationName">written by hmd</div>
+</div>
+
+<script>
+</script>
+</body>
+</html>

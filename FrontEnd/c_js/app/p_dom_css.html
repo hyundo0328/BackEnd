@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./assets/css/button.css">
+</head>
+<body>
+<h1>CSS를 사용해 CSS 조작</h1>
+<div class="wrap">
+  <button class="btn btn-m btn-blue" id="btnBlue">blue</button>
+  <button class="btn btn-m btn-green" id="btnGreen">green</button>
+  <button class="btn btn-m btn-red" id="btnRed">red</button>
+</div>
+<script>
+  const btns = document.querySelectorAll('.btn');
+  btns.forEach(e => {
+    e.addEventListener('mouseover', ev => {
+      // element 객체의 style 속성으로 css를 제어
+      // kebab-case(두 단어를 '-'로 연결)를 camelCase로 변경
+      // ex) background-color => backgroundColor
+      const target = ev.target;
+      target.style.backgroundColor = 'red';
+      target.style.transitionDuration = '3s';
+      target.style.borderRadius = '100%';
+    })
+    e.addEventListener('mouseout', ev => {
+      const target = ev.target;
+      target.style.backgroundColor = null;
+      target.style.borderRadius = null;
+    })
+  })
+</script>
+
+<div class="wrap2">
+  <button class="btn btn-m btn-blue" id="btnBlue2">blue</button>
+  <button class="btn btn-m btn-green" id="btnGreen2">green</button>
+  <button class="btn btn-m btn-red" id="btnRed2">red</button>
+</div>
+<script>
+  const wrap2 = document.querySelector('.wrap2');
+  const btns2 = wrap2.querySelectorAll('.btn');
+  btns2.forEach(e => {
+    e.addEventListener('mouseover', ev => {
+      const target = ev.target;
+      target.classList.replace('btn-m','btn-l');
+    });
+
+    e.addEventListener('mouseout', ev => {
+      const target = ev.target;
+      target.classList.replace('btn-l','btn-m');
+    });
+  })
+</script>
+
+</body>
+</html>

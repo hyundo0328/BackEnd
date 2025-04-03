@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- <link href="./assets/css/reset.css"> -->
+  <link rel="stylesheet" href="./assets/css/button.css">
+</head>
+<body>
+<h1>HTML Element 객체에 JS로 접근하기</h1>
+<div class="wrap">
+  <button class="btn btn-m btn-blue" id="btnBlue">blue</button>
+  <button class="btn btn-m btn-green" id="btnGreen">green</button>
+  <button class="btn btn-m btn-red" id="btnRed">red</button>
+</div>
+
+<script>
+  // html element 가져오기
+  // 1. document.querySelector(css selector)
+  //      css 선택자로 원하는 html element 객체에 접근
+  //      css 선택자가 복수의 요소를 가리킬 때 가장 처음 매칭되는 html 요소를 반환
+  // 2. document.querySelectorAll(css selector)
+  //      css 선택자와 매칭되는 모든 요소를 배열형태 객체로 반환
+
+  const btnBlue = document.querySelector("#btnBlue");
+  const btnBlue2 = document.querySelector('.btn-blue');
+  const btnFirst = document.querySelector('.btn');
+  console.dir(btnBlue);
+  console.dir(btnBlue2);
+  console.dir(btnFirst);
+
+  const btns = document.querySelectorAll('.btn');
+  console.dir(btns);
+</script>
+</body>
+</html>
