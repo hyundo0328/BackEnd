@@ -1,9 +1,10 @@
 import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm';
+require('dotenv').config();
 
-const API_KEY = 'a3LecUQIQERVixb88l1CnNcCc4bsxqPb5mUALLiu4TI';
+const unsplashApiKey = process.env.UNSPLASH_API_KEY;
 const URL = 'https://api.unsplash.com/photos/random?';
 const params = {
-  client_id: API_KEY,
+  client_id: unsplashApiKey,
   orientation: 'landscape',
   query: 'landscape'
 }

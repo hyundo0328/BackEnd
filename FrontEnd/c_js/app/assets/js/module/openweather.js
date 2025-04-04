@@ -1,9 +1,10 @@
-const API_KEY = 'bbd0b4e3a28004cabe8e31b907650744';
+require('dotenv').config();
+const weatherApiKey = process.env.WEATHER_API_KEY;
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const api = async coords => {
   const params = {
-    appid: API_KEY,
+    appid: weatherApiKey,
     lat: coords.latitude,
     lon: coords.longitude,
     units: 'metric'
